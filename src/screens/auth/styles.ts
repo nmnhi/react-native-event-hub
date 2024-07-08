@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {appInfo} from '../../constants/appInfos';
 import {appColors} from '../../constants/appColors';
+import {fontFamilies} from '../../constants/fontFamilies';
 
 export const authStyles = StyleSheet.create({
   container: {
@@ -27,12 +28,10 @@ export const authStyles = StyleSheet.create({
   },
   textControlNext: {
     color: appColors.white,
-    fontSize: 18,
-    fontWeight: 600,
+    fontFamily: fontFamilies.medium,
   },
   textControlSkip: {
     color: appColors.gray2,
-    fontSize: 18,
-    fontWeight: 600,
+    fontFamily: fontFamilies.medium,
   },
 });
