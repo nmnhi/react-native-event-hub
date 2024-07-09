@@ -14,7 +14,7 @@ export const authStyles = StyleSheet.create({
     flex: 1,
     width: appInfo.sizes.WIDTH,
     height: appInfo.sizes.HEIGHT,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
   swiperControl: {
     paddingHorizontal: 40,
