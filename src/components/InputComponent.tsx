@@ -46,7 +46,7 @@ const InputComponent = (props: Props) => {
         placeholder={placeholder ?? ''}
         onChangeText={val => onChange(val)}
         secureTextEntry={isShowPassword}
-        placeholderTextColor={'#747688'}
+        placeholderTextColor={appColors.borderInput}
         keyboardType={type ?? 'default'}
       />
 
