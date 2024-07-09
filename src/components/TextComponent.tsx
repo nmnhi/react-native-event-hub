@@ -22,10 +22,14 @@ const TextComponent = (props: Props) => {
       style={[
         globalStyles.text,
         {
-          color: color ?? appColors.text,
-          flex: flex ?? 0,
-          fontSize: size ?? title ? 24 : 14,
-          fontFamily: font ?? title ? fontFamilies.bold : fontFamilies.regular,
+          color: color ? color : appColors.text,
+          flex: flex ? flex : 0,
+          fontSize: size ? size : title ? 24 : 14,
+          fontFamily: font
+            ? font
+            : title
+            ? fontFamilies.medium
+            : fontFamilies.regular,
         },
         styles,
       ]}>

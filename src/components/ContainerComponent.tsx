@@ -18,7 +18,7 @@ interface Props {
 }
 
 const ContainerComponent = (props: Props) => {
-  const {children, isImageBackground, isScroll, title} = props;
+  const {children, isImageBackground, isScroll} = props;
 
   const returnContainer = isScroll ? (
     <ScrollView style={{flex: 1}}>{children}</ScrollView>
