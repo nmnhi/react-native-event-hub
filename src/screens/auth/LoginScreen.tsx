@@ -14,7 +14,7 @@ import {appColors} from '../../constants/appColors';
 import {Image, Switch} from 'react-native';
 import SocialLogin from './components/SocialLogin';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRemember, setIsRemember] = useState(true);
@@ -63,7 +63,7 @@ const LoginScreen = () => {
           </RowComponent>
           <ButtonComponent
             text="Forgot password?"
-            onPress={() => {}}
+            onPress={() => navigation.navigate('ForgotPassword')}
             type="text"
           />
         </RowComponent>
@@ -79,7 +79,11 @@ const LoginScreen = () => {
             text="Don't have an account?"
             styles={{marginRight: 4}}
           />
-          <ButtonComponent type="link" text="Sign up" />
+          <ButtonComponent
+            type="link"
+            text="Sign up"
+            onPress={() => navigation.navigate('SignUpScreen')}
+          />
         </RowComponent>
       </SectionComponent>
     </ContainerComponent>
