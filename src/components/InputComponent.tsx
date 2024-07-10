@@ -48,6 +48,7 @@ const InputComponent = (props: Props) => {
         secureTextEntry={isShowPassword}
         placeholderTextColor={appColors.borderInput}
         keyboardType={type ?? 'default'}
+        autoCapitalize="none"
       />
 
       {suffix ?? suffix}
