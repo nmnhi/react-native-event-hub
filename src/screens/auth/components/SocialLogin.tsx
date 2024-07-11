@@ -1,4 +1,5 @@
 import React from 'react';
+import {Facebook, Google} from '../../../assets/svgs';
 import {
   ButtonComponent,
   SectionComponent,
@@ -7,7 +8,6 @@ import {
 } from '../../../components';
 import {appColors} from '../../../constants/appColors';
 import {fontFamilies} from '../../../constants/fontFamilies';
-import {Facebook, Google} from '../../../assets/svgs';
 
 const SocialLogin = () => {
   return (

@@ -1,11 +1,11 @@
+import {ArrowRight, Sms} from 'iconsax-react-native';
 import React, {useState} from 'react';
-import {Sms, ArrowRight} from 'iconsax-react-native';
 import {
+  ButtonComponent,
   ContainerComponent,
+  InputComponent,
   SectionComponent,
   SpaceComponents,
-  InputComponent,
-  ButtonComponent,
   TextComponent,
 } from '../../components';
 import {appColors} from '../../constants/appColors';

@@ -1,11 +1,11 @@
-import {View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import {globalStyles} from '../../styles/globalStyles';
+import {Image, TouchableOpacity, View} from 'react-native';
 import Swiper from 'react-native-swiper';
-import {authStyles} from './styles';
-import {appColors} from '../../constants/appColors';
 import {TextComponent} from '../../components';
+import {appColors} from '../../constants/appColors';
 import {fontFamilies} from '../../constants/fontFamilies';
+import {globalStyles} from '../../styles/globalStyles';
+import {authStyles} from './styles';
 
 const OnboardingScreen = ({navigation}: any) => {
   const [index, setIndex] = useState(0);

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
+import {Lock, Sms, User} from 'iconsax-react-native';
+import authenticationAPI from '../../apis/authApi';
 import {
   ButtonComponent,
   ContainerComponent,
@@ -9,12 +11,10 @@ import {
   SpaceComponents,
   TextComponent,
 } from '../../components';
-import {Lock, Sms, User} from 'iconsax-react-native';
 import {appColors} from '../../constants/appColors';
-import SocialLogin from './components/SocialLogin';
-import authenticationAPI from '../../apis/authApi';
 import {LoadingModal} from '../../modals';
 import {Validate} from '../../utils/validate';
+import SocialLogin from './components/SocialLogin';
 
 const initValue = {
   username: '',

@@ -1,5 +1,5 @@
-import {View, Modal, ActivityIndicator} from 'react-native';
 import React from 'react';
+import {ActivityIndicator, Modal, View} from 'react-native';
 import {TextComponent} from '../components';
 import {appColors} from '../constants/appColors';
 

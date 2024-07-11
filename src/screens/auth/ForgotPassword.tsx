@@ -1,3 +1,4 @@
+import {ArrowRight, Sms} from 'iconsax-react-native';
 import React, {useState} from 'react';
 import {
   ButtonComponent,
@@ -7,7 +8,6 @@ import {
   SpaceComponents,
   TextComponent,
 } from '../../components';
-import {ArrowRight, Sms} from 'iconsax-react-native';
 import {appColors} from '../../constants/appColors';
 
 const ForgotPassword = () => {

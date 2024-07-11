@@ -1,7 +1,7 @@
-import {View, Text, Button} from 'react-native';
-import React from 'react';
-import {homeStyles} from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import {Button, Text, View} from 'react-native';
+import {homeStyles} from './styles';
 
 const HomeScreen = () => {
   return (

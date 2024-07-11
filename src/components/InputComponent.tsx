@@ -1,15 +1,15 @@
-import {
-  View,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-  KeyboardType,
-} from 'react-native';
 import React, {ReactNode, useState} from 'react';
-import {appColors} from '../constants/appColors';
+import {
+  KeyboardType,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {globalStyles} from '../styles/globalStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {appColors} from '../constants/appColors';
+import {globalStyles} from '../styles/globalStyles';
 
 interface Props {
   value: string;

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {appInfo} from '../../constants/appInfos';
 import {appColors} from '../../constants/appColors';
+import {appInfo} from '../../constants/appInfos';
 import {fontFamilies} from '../../constants/fontFamilies';
 
 export const authStyles = StyleSheet.create({
