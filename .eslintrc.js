@@ -5,6 +5,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['warn'],
     'no-unused-vars': 'off',
     'react-native/no-inline-styles': 'off',
-    requireConfigFile: false,
-  },
+    requireConfigFile: false
+  }
 };
