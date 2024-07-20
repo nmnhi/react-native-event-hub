@@ -10,7 +10,7 @@ import {
   RowComponent,
   SectionComponent,
   SpaceComponents,
-  TextComponent,
+  TextComponent
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 import SocialLogin from './components/SocialLogin';
@@ -35,7 +35,7 @@ const LoginScreen = ({navigation}: any) => {
         styles={{
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 75,
+          marginTop: 75
         }}>
         <Image
           source={require('../../assets/images/text-logo.png')}

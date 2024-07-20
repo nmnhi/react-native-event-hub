@@ -13,5 +13,5 @@ export {
   RowComponent,
   SectionComponent,
   SpaceComponents,
-  TextComponent,
+  TextComponent
 };

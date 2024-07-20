@@ -9,7 +9,7 @@ import {
   RowComponent,
   SectionComponent,
   SpaceComponents,
-  TextComponent,
+  TextComponent
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 import {LoadingModal} from '../../modals';
@@ -20,7 +20,7 @@ const initValue = {
   username: '',
   email: '',
   password: '',
-  confirmPassword: '',
+  confirmPassword: ''
 };
 
 const SignUpScreen = ({navigation}: any) => {
@@ -57,9 +57,9 @@ const SignUpScreen = ({navigation}: any) => {
             {
               fullName: values.username,
               email: values.email,
-              password: values.password,
+              password: values.password
             },
-            'post',
+            'post'
           );
           console.log(res);
           setIsLoading(false);
@@ -73,7 +73,7 @@ const SignUpScreen = ({navigation}: any) => {
 
         if (!passwordValidation) {
           setErrorMessage(
-            'Length of password need to more than or equal 6 characters',
+            'Length of password need to more than or equal 6 characters'
           );
         } else {
           setErrorMessage('Confirm password do not match with password');

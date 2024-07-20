@@ -4,7 +4,7 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
-  ViewStyle,
+  ViewStyle
 } from 'react-native';
 import {appColors} from '../constants/appColors';
 import {fontFamilies} from '../constants/fontFamilies';
@@ -35,7 +35,7 @@ const ButtonComponent = (props: Props) => {
     textStyles,
     textFont,
     iconFlex,
-    onPress,
+    onPress
   } = props;
 
   return type === 'primary' ? (
@@ -49,9 +49,9 @@ const ButtonComponent = (props: Props) => {
           {
             backgroundColor: color ?? appColors.primary,
             marginBottom: 17,
-            width: '85%',
+            width: '85%'
           },
-          styles,
+          styles
         ]}>
         {icon && iconFlex === 'left' && icon}
         <TextComponent
@@ -59,7 +59,7 @@ const ButtonComponent = (props: Props) => {
           color={textColor ?? appColors.white}
           styles={[
             textStyles,
-            {marginLeft: icon ? 12 : 0, fontSize: 16, textAlign: 'center'},
+            {marginLeft: icon ? 12 : 0, fontSize: 16, textAlign: 'center'}
           ]}
           flex={icon && iconFlex === 'right' ? 1 : 0}
           font={textFont ?? fontFamilies.medium}

@@ -29,9 +29,9 @@ const TextComponent = (props: Props) => {
             ? font
             : title
             ? fontFamilies.medium
-            : fontFamilies.regular,
+            : fontFamilies.regular
         },
-        styles,
+        styles
       ]}>
       {text}
     </Text>

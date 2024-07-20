@@ -6,7 +6,7 @@ import {
   InputComponent,
   SectionComponent,
   SpaceComponents,
-  TextComponent,
+  TextComponent
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 

@@ -8,7 +8,7 @@ import {
   StyleProp,
   TouchableOpacity,
   View,
-  ViewStyle,
+  ViewStyle
 } from 'react-native';
 import {appColors} from '../constants/appColors';
 import {fontFamilies} from '../constants/fontFamilies';
@@ -39,7 +39,7 @@ const ContainerComponent = (props: Props) => {
               paddingHorizontal: 16,
               paddingVertical: 10,
               minWidth: 48,
-              minHeight: 48,
+              minHeight: 48
             }}>
             {back && (
               <TouchableOpacity

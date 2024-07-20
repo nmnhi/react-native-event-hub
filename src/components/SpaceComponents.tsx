@@ -11,8 +11,8 @@ const SpaceComponents = (props: Props) => {
   const styles = StyleSheet.create({
     container: {
       width: width,
-      height: height,
-    },
+      height: height
+    }
   });
 
   return <View style={styles.container} />;

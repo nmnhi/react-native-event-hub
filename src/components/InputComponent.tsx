@@ -4,7 +4,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -31,7 +31,7 @@ const InputComponent = (props: Props) => {
     placeholder,
     isPassword,
     allowClear,
-    type,
+    type
   } = props;
 
   const [isShowPassword, setIsShowPassword] = useState(isPassword ?? false);
@@ -90,12 +90,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 15,
     backgroundColor: appColors.white,
-    marginBottom: 19,
+    marginBottom: 19
   },
   input: {
     padding: 0,
     margin: 0,
     flex: 1,
-    paddingHorizontal: 14,
-  },
+    paddingHorizontal: 14
+  }
 });
