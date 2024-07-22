@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Lock, Sms, User} from 'iconsax-react-native';
+import {useDispatch} from 'react-redux';
 import authenticationAPI from '../../apis/authApi';
 import {
   ButtonComponent,
@@ -13,6 +15,7 @@ import {
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 import {LoadingModal} from '../../modals';
+import {addAuth} from '../../redux/reducers/authReducer';
 import {Validate} from '../../utils/validate';
 import SocialLogin from './components/SocialLogin';
 
@@ -27,6 +30,8 @@ const SignUpScreen = ({navigation}: any) => {
   const [values, setValues] = useState(initValue);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (values.email || values.password || values.confirmPassword) {
@@ -61,7 +66,9 @@ const SignUpScreen = ({navigation}: any) => {
             },
             'post'
           );
-          console.log(res);
+
+          dispatch(addAuth(res.data));
+          await AsyncStorage.setItem('auth', JSON.stringify(res.data));
           setIsLoading(false);
         } catch (error) {
           setIsLoading(false);
