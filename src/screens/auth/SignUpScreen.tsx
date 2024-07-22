@@ -15,7 +15,7 @@ import {
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 import {LoadingModal} from '../../modals';
-import {addAuth} from '../../redux/reducers/authReducer';
+import {addAuth} from '../../store/reducers/authReducer';
 import {Validate} from '../../utils/validate';
 import SocialLogin from './components/SocialLogin';
 
