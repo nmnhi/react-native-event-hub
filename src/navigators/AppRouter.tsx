@@ -11,7 +11,7 @@ const AppRouter = () => {
   const auth = useSelector(authSelector);
   const dispatch = useDispatch();
 
-  console.log(auth);
+  console.log('Data from store', auth);
 
   useEffect(() => {
     checkLogin();
@@ -20,7 +20,7 @@ const AppRouter = () => {
   const checkLogin = async () => {
     const res = await getItem();
     res && dispatch(addAuth(JSON.parse(res)));
-    console.log(res);
+    console.log('Data from local storage', res);
   };
 
   return <>{auth.accessToken ? <MainNavigator /> : <AuthNavigator />}</>;

@@ -7,10 +7,16 @@ import {homeStyles} from './styles';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
+
+  const logOut = async () => {
+    await AsyncStorage.clear();
+    dispatch(removeAuth({}));
+  };
+
   return (
     <View style={homeStyles.container}>
       <Text>HomeScreen</Text>
-      <Button title="Logout" onPress={async () => dispatch(removeAuth({}))} />
+      <Button title="Logout" onPress={async () => logOut()} />
     </View>
   );
 };
