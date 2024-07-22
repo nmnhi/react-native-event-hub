@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import AppRouter from './src/navigators/AppRouter';
-import store from './src/redux/store';
 import {SplashScreen} from './src/screens';
+import store from './src/store/store';
 
 const App = () => {
   const [isShowSplash, setIsShowSplash] = useState(true);
