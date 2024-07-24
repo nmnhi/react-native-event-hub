@@ -7,16 +7,6 @@ import {SplashScreen} from './src/screens';
 import store from './src/store/store';
 
 const App = () => {
-  const [isShowSplash, setIsShowSplash] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsShowSplash(false);
-    }, 1500);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <>
       <StatusBar
@@ -25,13 +15,9 @@ const App = () => {
         translucent
       />
       <Provider store={store}>
-        {isShowSplash ? (
-          <SplashScreen />
-        ) : (
-          <NavigationContainer>
-            <AppRouter />
-          </NavigationContainer>
-        )}
+        <NavigationContainer>
+          <AppRouter />
+        </NavigationContainer>
       </Provider>
     </>
   );
