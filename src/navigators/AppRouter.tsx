@@ -17,7 +17,7 @@ const AppRouter = () => {
     checkLogin();
     const timeout = setTimeout(() => {
       setIsShowSplash(false);
-    }, 1500);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
