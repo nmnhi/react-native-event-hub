@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Lock, Sms} from 'iconsax-react-native';
 import {Image, Switch} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import authenticationAPI from '../../apis/authApi';
 import {
   ButtonComponent,
@@ -13,19 +15,63 @@ import {
   TextComponent
 } from '../../components';
 import {appColors} from '../../constants/appColors';
+import {addAuth, authSelector} from '../../store/reducers/authReducer';
+import {Validate} from '../../utils/validate';
 import SocialLogin from './components/SocialLogin';
 
 const LoginScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRemember, setIsRemember] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
+  const auth = useSelector(authSelector);
 
   const handleLogin = async () => {
-    try {
-      const resp = await authenticationAPI.HandleAuthentication('/hello');
-      console.log(resp);
-    } catch (error) {
-      console.log(error);
+    setErrorMessage('');
+    const emailValidation = Validate.Email(email);
+    const passwordValidation = Validate.Password(password);
+    if (emailValidation && passwordValidation) {
+      try {
+        const resp = await authenticationAPI.HandleAuthentication(
+          '/login',
+          {email: email, password: password},
+          'post'
+        );
+        dispatch(addAuth(resp.data));
+        await AsyncStorage.setItem(
+          'auth',
+          isRemember
+            ? JSON.stringify({...resp.data, password: password})
+            : JSON.stringify({...resp.data})
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      if (!emailValidation) {
+        setErrorMessage('Email incorrect format!');
+      }
+
+      if (!passwordValidation) {
+        setErrorMessage(
+          'Length of password need to more than or equal 6 characters'
+        );
+        ``;
+      }
+    }
+  };
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  const getCurrentUser = async () => {
+    const data = await AsyncStorage.getItem('auth');
+    if (data) {
+      const userData = JSON.parse(data);
+      setEmail(userData.email);
+      setPassword(userData.password);
     }
   };
 
@@ -79,6 +125,12 @@ const LoginScreen = ({navigation}: any) => {
         </RowComponent>
       </SectionComponent>
       <SpaceComponents height={16} />
+      {errorMessage && (
+        <SectionComponent
+          styles={{flexDirection: 'row', justifyContent: 'center'}}>
+          <TextComponent text={errorMessage} color={appColors.danger} />
+        </SectionComponent>
+      )}
       <SectionComponent>
         <ButtonComponent text="SIGN IN" type="primary" onPress={handleLogin} />
       </SectionComponent>
