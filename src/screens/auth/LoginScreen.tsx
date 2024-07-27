@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Lock, Sms} from 'iconsax-react-native';
-import {Image, Switch} from 'react-native';
+import {ArrowRight, Lock, Sms} from 'iconsax-react-native';
+import {Alert, Image, Switch, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import authenticationAPI from '../../apis/authApi';
 import {
@@ -16,6 +16,7 @@ import {
 } from '../../components';
 import {appColors} from '../../constants/appColors';
 import {addAuth, authSelector} from '../../store/reducers/authReducer';
+import {globalStyles} from '../../styles/globalStyles';
 import {Validate} from '../../utils/validate';
 import SplashScreen from '../SplashScreen';
 import SocialLogin from './components/SocialLogin';
@@ -28,7 +29,6 @@ const LoginScreen = ({navigation}: any) => {
   const [isShowSplash, setIsShowSplash] = useState(true);
 
   const dispatch = useDispatch();
-  const auth = useSelector(authSelector);
 
   const handleLogin = async () => {
     setErrorMessage('');
@@ -49,7 +49,7 @@ const LoginScreen = ({navigation}: any) => {
             : JSON.stringify({...resp.data})
         );
       } catch (error) {
-        console.log(error);
+        Alert.alert('Email or password is not correct');
       }
     } else {
       if (!emailValidation) {
@@ -127,7 +127,8 @@ const LoginScreen = ({navigation}: any) => {
                   thumbColor={appColors.white}
                   style={{transform: [{scaleX: 0.8}, {scaleY: 0.8}]}}
                 />
-                <TextComponent text="Remember me" styles={{marginLeft: 4}} />
+                <SpaceComponents width={4} />
+                <TextComponent text="Remember me" />
               </RowComponent>
               <ButtonComponent
                 text="Forgot password?"
@@ -148,6 +149,12 @@ const LoginScreen = ({navigation}: any) => {
               text="SIGN IN"
               type="primary"
               onPress={handleLogin}
+              icon={
+                <View style={[globalStyles.iconContainer]}>
+                  <ArrowRight size={18} color={appColors.white} />
+                </View>
+              }
+              iconFlex="right"
             />
           </SectionComponent>
           <SocialLogin />

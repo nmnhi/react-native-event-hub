@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleProp, Text, TextStyle} from 'react-native';
+import {Platform, StyleProp, Text, TextStyle} from 'react-native';
 import {appColors} from '../constants/appColors';
 import {fontFamilies} from '../constants/fontFamilies';
 import {globalStyles} from '../styles/globalStyles';
@@ -17,6 +17,8 @@ interface Props {
 const TextComponent = (props: Props) => {
   const {text, size, flex, font, color, title, styles} = props;
 
+  const fontDefault = Platform.OS === 'ios' ? 14 : 14;
+
   return (
     <Text
       style={[
@@ -24,7 +26,7 @@ const TextComponent = (props: Props) => {
         {
           color: color ? color : appColors.text,
           flex: flex ? flex : 0,
-          fontSize: size ? size : title ? 24 : 14,
+          fontSize: size ? size : title ? 24 : fontDefault,
           fontFamily: font
             ? font
             : title

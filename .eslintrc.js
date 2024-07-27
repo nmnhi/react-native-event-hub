@@ -3,7 +3,7 @@ module.exports = {
   extends: '@react-native',
   rules: {
     '@typescript-eslint/no-unused-vars': ['warn'],
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'warn',
     'react-native/no-inline-styles': 'off',
     requireConfigFile: false
   }
