@@ -1,4 +1,4 @@
-package com.evenhub
+package com.nhievenhub
 
 import android.app.Application
 import com.facebook.react.PackageList

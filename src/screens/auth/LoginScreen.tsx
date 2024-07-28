@@ -27,6 +27,21 @@ const LoginScreen = ({navigation}: any) => {
   const [isRemember, setIsRemember] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const [isShowSplash, setIsShowSplash] = useState(true);
+  const [isDisable, setIsDisable] = useState(true);
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  useEffect(() => {
+    const emailValidation = Validate.Email(email);
+    const passwordValidation = Validate.Password(password);
+    if (email && password && emailValidation && passwordValidation) {
+      setIsDisable(false);
+    } else {
+      setIsDisable(true);
+    }
+  }, [email, password]);
 
   const dispatch = useDispatch();
 
@@ -65,17 +80,15 @@ const LoginScreen = ({navigation}: any) => {
     }
   };
 
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
-
   const getCurrentUser = async () => {
     setIsShowSplash(true);
     const data = await AsyncStorage.getItem('auth');
     if (data) {
       const userData = JSON.parse(data);
       setEmail(userData.email);
-      setPassword(userData.password);
+      if (userData.password) {
+        setPassword(userData.password);
+      }
     }
     const timeout = setTimeout(() => {
       setIsShowSplash(false);
@@ -148,9 +161,18 @@ const LoginScreen = ({navigation}: any) => {
             <ButtonComponent
               text="SIGN IN"
               type="primary"
+              disable={isDisable}
               onPress={handleLogin}
               icon={
-                <View style={[globalStyles.iconContainer]}>
+                <View
+                  style={[
+                    globalStyles.iconContainer,
+                    {
+                      backgroundColor: isDisable
+                        ? appColors.gray4
+                        : appColors.iconBackgroundColor
+                    }
+                  ]}>
                   <ArrowRight size={18} color={appColors.white} />
                 </View>
               }

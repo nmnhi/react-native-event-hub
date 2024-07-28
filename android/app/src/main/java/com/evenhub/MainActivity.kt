@@ -1,4 +1,4 @@
-package com.evenhub
+package com.nhievenhub
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
