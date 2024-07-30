@@ -19,7 +19,7 @@ import {Validate} from '../../utils/validate';
 import SocialLogin from './components/SocialLogin';
 
 const initValue = {
-  username: '',
+  name: '',
   email: '',
   password: '',
   confirmPassword: ''
@@ -127,8 +127,8 @@ const SignUpScreen = ({navigation}: any) => {
           <TextComponent text="Sign up" title />
           <SpaceComponents height={21} />
           <InputComponent
-            value={values.username}
-            onChange={value => handleChangeValue('username', value)}
+            value={values.name}
+            onChange={value => handleChangeValue('name', value)}
             placeholder="Full name"
             affix={<User size={22} color={appColors.gray} />}
             allowClear
