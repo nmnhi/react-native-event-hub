@@ -3,7 +3,6 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import React, {useState} from 'react';
 import {
   AccessToken,
-  LoginButton,
   LoginManager,
   Profile,
   Settings

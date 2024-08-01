@@ -4,12 +4,14 @@ interface AuthState {
   id: string;
   email: string;
   accessToken: string;
+  photoUrl: string;
 }
 
 const initialStates: AuthState = {
   id: '',
   email: '',
-  accessToken: ''
+  accessToken: '',
+  photoUrl: ''
 };
 
 const authSlice = createSlice({

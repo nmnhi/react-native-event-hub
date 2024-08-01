@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ArrowRight, Lock, Sms} from 'iconsax-react-native';
 import {Alert, Image, Switch, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import authenticationAPI from '../../apis/authApi';
 import {
   ButtonComponent,
@@ -15,7 +15,7 @@ import {
   TextComponent
 } from '../../components';
 import {appColors} from '../../constants/appColors';
-import {addAuth, authSelector} from '../../store/reducers/authReducer';
+import {addAuth} from '../../store/reducers/authReducer';
 import {globalStyles} from '../../styles/globalStyles';
 import {Validate} from '../../utils/validate';
 import SplashScreen from '../SplashScreen';
