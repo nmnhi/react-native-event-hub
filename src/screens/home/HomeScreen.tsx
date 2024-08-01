@@ -7,7 +7,7 @@ import {appColors} from '../../constants/appColors';
 import {fontFamilies} from '../../constants/fontFamilies';
 import {globalStyles} from '../../styles/globalStyles';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}: any) => {
   return (
     <View style={[globalStyles.container]}>
       <StatusBar barStyle={'light-content'} />
@@ -23,7 +23,11 @@ const HomeScreen = () => {
         }}>
         <RowComponent>
           <TouchableOpacity>
-            <HambergerMenu size={24} color={appColors.white} />
+            <HambergerMenu
+              size={24}
+              color={appColors.white}
+              onPress={() => navigation.openDrawer()}
+            />
           </TouchableOpacity>
 
           <View style={[{flex: 1, alignItems: 'center'}]}>
