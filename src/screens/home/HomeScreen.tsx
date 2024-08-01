@@ -1,37 +1,77 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {HambergerMenu, Notification} from 'iconsax-react-native';
 import React from 'react';
-import {Button, Text, View} from 'react-native';
-import {LoginManager} from 'react-native-fbsdk-next';
-import {useDispatch, useSelector} from 'react-redux';
-import {authSelector, removeAuth} from '../../store/reducers/authReducer';
-import {homeStyles} from './styles';
+import {Platform, StatusBar, TouchableOpacity, View} from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {CircleComponent, RowComponent, TextComponent} from '../../components';
+import {appColors} from '../../constants/appColors';
+import {fontFamilies} from '../../constants/fontFamilies';
+import {globalStyles} from '../../styles/globalStyles';
 
 const HomeScreen = () => {
-  const dispatch = useDispatch();
-  const auth = useSelector(authSelector);
-
-  const logOut = async () => {
-    const data = await AsyncStorage.getItem('auth');
-    if (data) {
-      const userObject = JSON.parse(data);
-      await GoogleSignin.signOut();
-      await LoginManager.logOut();
-      await AsyncStorage.setItem(
-        'auth',
-        JSON.stringify({email: userObject.email, password: userObject.password})
-      );
-    } else {
-      await AsyncStorage.setItem('auth', JSON.stringify(auth.email));
-    }
-
-    dispatch(removeAuth({}));
-  };
-
   return (
-    <View style={homeStyles.container}>
-      <Text>HomeScreen</Text>
-      <Button title="Logout" onPress={async () => logOut()} />
+    <View style={[globalStyles.container]}>
+      <StatusBar barStyle={'light-content'} />
+
+      <View
+        style={{
+          backgroundColor: appColors.primary,
+          height: 179,
+          borderBottomLeftRadius: 40,
+          borderBottomRightRadius: 40,
+          paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 52,
+          paddingHorizontal: 16
+        }}>
+        <RowComponent>
+          <TouchableOpacity>
+            <HambergerMenu size={24} color={appColors.white} />
+          </TouchableOpacity>
+
+          <View style={[{flex: 1, alignItems: 'center'}]}>
+            <RowComponent>
+              <TextComponent
+                text="Current location"
+                color={appColors.white2}
+                size={12}
+              />
+              <MaterialIcons
+                name="arrow-drop-down"
+                size={18}
+                color={appColors.white}
+              />
+            </RowComponent>
+            <TextComponent
+              text="New York, USA"
+              color={appColors.white}
+              flex={0}
+              font={fontFamilies.medium}
+              size={13}
+            />
+          </View>
+          <CircleComponent color="#524CE0" size={36}>
+            <View>
+              <Notification size={18} color={appColors.white} />
+              <View
+                style={{
+                  backgroundColor: '#02E9FE',
+                  height: 10,
+                  width: 10,
+                  borderRadius: 5,
+                  position: 'absolute',
+                  borderColor: '#524CE0',
+                  borderWidth: 2,
+                  top: -2,
+                  right: 0,
+                  transform: [{scale: 0.8}]
+                }}
+              />
+            </View>
+          </CircleComponent>
+        </RowComponent>
+      </View>
+      <View
+        style={{
+          flex: 1
+        }}></View>
     </View>
   );
 };
