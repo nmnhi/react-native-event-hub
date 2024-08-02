@@ -8,6 +8,7 @@ import HomeScreen from './home/HomeScreen';
 import MapScreen from './maps/MapScreen';
 import ProfileScreen from './profiles/ProfileScreen';
 import SplashScreen from './SplashScreen';
+import SearchEvents from './events/SearchEvents';
 
 export {
   AddNewScreen,
@@ -19,5 +20,6 @@ export {
   ProfileScreen,
   SignUpScreen,
   SplashScreen,
-  Verification
+  Verification,
+  SearchEvents
 };

@@ -5,6 +5,7 @@ import InputComponent from './InputComponent';
 import RowComponent from './RowComponent';
 import SectionComponent from './SectionComponent';
 import SpaceComponents from './SpaceComponents';
+import TagComponent from './TagComponent';
 import TextComponent from './TextComponent';
 
 export {
@@ -15,5 +16,6 @@ export {
   RowComponent,
   SectionComponent,
   SpaceComponents,
+  TagComponent,
   TextComponent
 };

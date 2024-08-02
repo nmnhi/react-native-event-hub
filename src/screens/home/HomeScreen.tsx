@@ -1,8 +1,19 @@
-import {HambergerMenu, Notification} from 'iconsax-react-native';
+import {
+  HambergerMenu,
+  Notification,
+  SearchNormal1,
+  Sort
+} from 'iconsax-react-native';
 import React from 'react';
 import {Platform, StatusBar, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {CircleComponent, RowComponent, TextComponent} from '../../components';
+import {
+  CircleComponent,
+  RowComponent,
+  SpaceComponents,
+  TagComponent,
+  TextComponent
+} from '../../components';
 import {appColors} from '../../constants/appColors';
 import {fontFamilies} from '../../constants/fontFamilies';
 import {globalStyles} from '../../styles/globalStyles';
@@ -70,6 +81,41 @@ const HomeScreen = ({navigation}: any) => {
               />
             </View>
           </CircleComponent>
+        </RowComponent>
+        <SpaceComponents height={20} />
+        <RowComponent>
+          <RowComponent
+            styles={{flex: 1}}
+            onPress={() =>
+              navigation.navigate('SearchEvents', {isFilter: false})
+            }>
+            <SearchNormal1
+              variant="TwoTone"
+              color={appColors.white}
+              size={18}
+            />
+            <View
+              style={{
+                width: 1,
+                backgroundColor: appColors.gray3,
+                marginHorizontal: 10,
+                height: 20
+              }}
+            />
+            <TextComponent text="Search..." color={appColors.gray3} size={16} />
+          </RowComponent>
+          <TagComponent
+            label="Filters"
+            onPress={() =>
+              navigation.navigate('SearchEvents', {isFilter: true})
+            }
+            icon={
+              <CircleComponent size={20} color="#B1AFEA">
+                <Sort size={16} color={appColors.primary3} />
+              </CircleComponent>
+            }
+            bgColor={appColors.primary3}
+          />
         </RowComponent>
       </View>
       <View

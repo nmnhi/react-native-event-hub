@@ -48,5 +48,12 @@ export const globalStyles = StyleSheet.create({
     height: 30,
     borderRadius: 16,
     backgroundColor: appColors.iconBackgroundColor
+  },
+  tag: {
+    borderRadius: 100,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    justifyContent: 'center',
+    alignContent: 'center'
   }
 });
