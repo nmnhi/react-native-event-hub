@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import {appColors} from '../constants/appColors';
+import {fontFamilies} from '../constants/fontFamilies';
 import {globalStyles} from '../styles/globalStyles';
 import TextComponent from './TextComponent';
 
@@ -29,6 +30,7 @@ const TagComponent = (props: Props) => {
       ]}>
       {icon && icon}
       <TextComponent
+        font={fontFamilies.medium}
         text={label}
         styles={{marginLeft: icon ? 8 : 0}}
         color={

@@ -8,6 +8,7 @@ import React from 'react';
 import {Platform, StatusBar, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {
+  CategoriesList,
   CircleComponent,
   RowComponent,
   SpaceComponents,
@@ -26,97 +27,112 @@ const HomeScreen = ({navigation}: any) => {
       <View
         style={{
           backgroundColor: appColors.primary,
-          height: 179,
+          height: 182,
           borderBottomLeftRadius: 40,
           borderBottomRightRadius: 40,
-          paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 52,
-          paddingHorizontal: 16
+          paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 52
         }}>
-        <RowComponent>
-          <TouchableOpacity>
-            <HambergerMenu
-              size={24}
-              color={appColors.white}
-              onPress={() => navigation.openDrawer()}
-            />
-          </TouchableOpacity>
-
-          <View style={[{flex: 1, alignItems: 'center'}]}>
-            <RowComponent>
-              <TextComponent
-                text="Current location"
-                color={appColors.white2}
-                size={12}
-              />
-              <MaterialIcons
-                name="arrow-drop-down"
-                size={18}
+        <View style={{paddingHorizontal: 16}}>
+          {/* Location Section */}
+          <RowComponent>
+            <TouchableOpacity>
+              <HambergerMenu
+                size={24}
                 color={appColors.white}
+                onPress={() => navigation.openDrawer()}
               />
-            </RowComponent>
-            <TextComponent
-              text="New York, USA"
-              color={appColors.white}
-              flex={0}
-              font={fontFamilies.medium}
-              size={13}
-            />
-          </View>
-          <CircleComponent color="#524CE0" size={36}>
-            <View>
-              <Notification size={18} color={appColors.white} />
-              <View
-                style={{
-                  backgroundColor: '#02E9FE',
-                  height: 10,
-                  width: 10,
-                  borderRadius: 5,
-                  position: 'absolute',
-                  borderColor: '#524CE0',
-                  borderWidth: 2,
-                  top: -2,
-                  right: 0,
-                  transform: [{scale: 0.8}]
-                }}
+            </TouchableOpacity>
+
+            <View style={[{flex: 1, alignItems: 'center'}]}>
+              <RowComponent>
+                <TextComponent
+                  text="Current location"
+                  color={appColors.white2}
+                  size={12}
+                />
+                <MaterialIcons
+                  name="arrow-drop-down"
+                  size={18}
+                  color={appColors.white}
+                />
+              </RowComponent>
+              <TextComponent
+                text="New York, USA"
+                color={appColors.white}
+                flex={0}
+                font={fontFamilies.medium}
+                size={13}
               />
             </View>
-          </CircleComponent>
-        </RowComponent>
-        <SpaceComponents height={20} />
-        <RowComponent>
-          <RowComponent
-            styles={{flex: 1}}
-            onPress={() =>
-              navigation.navigate('SearchEvents', {isFilter: false})
-            }>
-            <SearchNormal1
-              variant="TwoTone"
-              color={appColors.white}
-              size={18}
-            />
-            <View
-              style={{
-                width: 1,
-                backgroundColor: appColors.gray3,
-                marginHorizontal: 10,
-                height: 20
-              }}
-            />
-            <TextComponent text="Search..." color={appColors.gray3} size={16} />
+            <CircleComponent color="#524CE0" size={36}>
+              <View>
+                <Notification size={18} color={appColors.white} />
+                <View
+                  style={{
+                    backgroundColor: '#02E9FE',
+                    height: 10,
+                    width: 10,
+                    borderRadius: 5,
+                    position: 'absolute',
+                    borderColor: '#524CE0',
+                    borderWidth: 2,
+                    top: -2,
+                    right: 0,
+                    transform: [{scale: 0.8}]
+                  }}
+                />
+              </View>
+            </CircleComponent>
           </RowComponent>
-          <TagComponent
-            label="Filters"
-            onPress={() =>
-              navigation.navigate('SearchEvents', {isFilter: true})
-            }
-            icon={
-              <CircleComponent size={20} color="#B1AFEA">
-                <Sort size={16} color={appColors.primary3} />
-              </CircleComponent>
-            }
-            bgColor={appColors.primary3}
-          />
-        </RowComponent>
+
+          <SpaceComponents height={20} />
+
+          {/* Search Bar Section */}
+          <RowComponent>
+            <RowComponent
+              styles={{flex: 1}}
+              onPress={() =>
+                navigation.navigate('SearchEvents', {isFilter: false})
+              }>
+              <SearchNormal1
+                variant="TwoTone"
+                color={appColors.white}
+                size={18}
+              />
+              <View
+                style={{
+                  width: 1,
+                  backgroundColor: appColors.gray3,
+                  marginHorizontal: 10,
+                  height: 20
+                }}
+              />
+              <TextComponent
+                text="Search..."
+                color={appColors.gray3}
+                size={16}
+              />
+            </RowComponent>
+            <TagComponent
+              label="Filters"
+              onPress={() =>
+                navigation.navigate('SearchEvents', {isFilter: true})
+              }
+              icon={
+                <CircleComponent size={20} color="#B1AFEA">
+                  <Sort size={16} color={appColors.primary3} />
+                </CircleComponent>
+              }
+              bgColor={appColors.primary3}
+            />
+          </RowComponent>
+
+          <SpaceComponents height={20} />
+        </View>
+        <View style={{marginBottom: -18}}>
+          {/* Categories List*/}
+          <CategoriesList isFill />
+        </View>
       </View>
       <View
         style={{
