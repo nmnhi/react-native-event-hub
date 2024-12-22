@@ -55,5 +55,12 @@ export const globalStyles = StyleSheet.create({
     paddingVertical: 8,
     justifyContent: 'center',
     alignContent: 'center'
+  },
+  card: {
+    backgroundColor: appColors.white,
+    borderRadius: 12,
+    padding: 12,
+    marginHorizontal: 12,
+    marginVertical: 6
   }
 });

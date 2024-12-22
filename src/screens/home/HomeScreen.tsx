@@ -5,13 +5,23 @@ import {
   Sort
 } from 'iconsax-react-native';
 import React from 'react';
-import {Platform, StatusBar, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  Platform,
+  ScrollView,
+  StatusBar,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {
   CategoriesList,
   CircleComponent,
+  EventItem,
   RowComponent,
+  SectionComponent,
   SpaceComponents,
+  TabBarComponent,
   TagComponent,
   TextComponent
 } from '../../components';
@@ -134,10 +144,20 @@ const HomeScreen = ({navigation}: any) => {
           <CategoriesList isFill />
         </View>
       </View>
-      <View
-        style={{
-          flex: 1
-        }}></View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={[{flex: 1, marginTop: 16}]}>
+        <SectionComponent styles={{paddingHorizontal: 0, paddingTop: 20}}>
+          <TabBarComponent title="Upcoming Events" onPress={() => {}} />
+          <FlatList
+            horizontal
+            data={Array.from({length: 5})}
+            renderItem={({item, index}) => (
+              <EventItem item={item} key={`event${index}`} type="card" />
+            )}
+          />
+        </SectionComponent>
+      </ScrollView>
     </View>
   );
 };
